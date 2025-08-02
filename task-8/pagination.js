@@ -63,6 +63,16 @@
     function setupPagination() {
       paginationContainer.innerHTML = '';
 
+//First Button
+      const firstBtn = document.createElement('button');
+      firstBtn.textContent = 'First';
+      firstBtn.className = 'page-btn';
+      firstBtn.onclick = () => {
+          displayImage(menuItems[0],0);     
+      };
+      paginationContainer.appendChild(firstBtn);
+
+
 // Prev button
       const prevBtn = document.createElement('button');
       prevBtn.textContent = '<<';
@@ -98,6 +108,16 @@
         }
       };
       paginationContainer.appendChild(nextBtn);
+
+//Last Button
+      const lastBtn = document.createElement('button');
+      lastBtn.textContent = 'Last';
+      lastBtn.className = 'page-btn';
+      lastBtn.onclick = () => {
+          displayImage(menuItems[totalPages-1],totalPages-1);  
+          currentPage =   totalPages-1;
+      };
+      paginationContainer.appendChild(lastBtn);
 
       
     function displayImage(item, index) {
@@ -139,5 +159,3 @@
     // Init
     displaydefault();
     setupPagination();
-    
-
